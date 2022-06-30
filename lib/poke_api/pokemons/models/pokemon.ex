@@ -3,7 +3,7 @@ defmodule PokeApi.Pokemons.Models.Pokemon do
 
   import Ecto.Changeset
 
-  schema "pokemons" do
+  schema "pokemon" do
     field :name, :string
     field :img_url, :string
 
