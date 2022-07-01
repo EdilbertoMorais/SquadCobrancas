@@ -3,14 +3,14 @@ defmodule PokeApi.Pokemons.Models.Pokemon do
 
   import Ecto.Changeset
 
-  schema "pokemon" do
+  @required_params [:name, :img_url]
+
+  schema "pokemons" do
     field :name, :string
     field :img_url, :string
 
     timestamps()
   end
-
-  @required_params [:name, :img_url]
 
   def build(params) do
     params
@@ -22,12 +22,6 @@ defmodule PokeApi.Pokemons.Models.Pokemon do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
+    |> unique_constraint([:name])
   end
-
-  # exemplo do André (entender)
-  # def changeset(%__MODULE__{} = model, params) do
-  #   model
-  #   |> cast(params, @required_params)
-  #   |> validate_required(@required_params)
-  # end
 end
