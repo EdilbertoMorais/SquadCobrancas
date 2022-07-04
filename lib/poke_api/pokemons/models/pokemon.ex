@@ -15,7 +15,6 @@ defmodule PokeApi.Pokemons.Models.Pokemon do
   def build(params) do
     params
     |> changeset()
-    |> apply_action(:insert)
   end
 
   def changeset(params) do
